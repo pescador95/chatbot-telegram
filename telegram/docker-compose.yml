@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  telegram:
+    container_name: telegram
+    image: pescador95/agendamento:telegram
+    build:
+      context: ./telegram
+      dockerfile: Dockerfile
+    env_file:
+      - ./telegram.env
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+    driver: bridge
